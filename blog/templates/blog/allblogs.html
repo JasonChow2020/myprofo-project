@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Home Page</title>
+    <title>Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -60,7 +60,7 @@
             <a class="nav-link" href="#">Resume</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
+            <a class="nav-link active" href="#">Blog</a>
           </li>
         </ul>
       </div>
@@ -69,35 +69,29 @@
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>About me</h1>
-      <p class="lead text-muted">Welcome to the website, navigate and find more about me.</p>
-      <p>
-        <a href="mailto:jason10wtsmc@hotmail.com" class="btn btn-primary my-2">Email</a>
-      </p>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
     <div class="container">
 
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
+    <h1 class="text-center pt-3">Welcome to my blog</h1>
+    <br />
+    <br />
+    <h2>Latest</h2>
+        <hr />
+    <div class="row">
+        {% for blog in blogs.all %}
+            <div class="col-md-4">
+                <a href=""><p class="card-text">{{ blog.title }}</p></a>
+                <p class="card-text">{{ blog.pub_date }}</p>
+                <div class="card mb-4 shadow-sm">
+                    <img class="bd-placeholder-img card-img-top" src="{{ blog.image.url }}" height="200" width="300"/>
+                    <div class="card-body">
+                        <p class="card-text">{{ blog.body }}</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
         {% endfor %}
-      </div>
     </div>
-  </div>
+    <hr />
+    </div>
 </main>
 
 <footer class="text-muted">
