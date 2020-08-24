@@ -80,11 +80,11 @@
         {% for blog in blogs.all %}
             <div class="col-md-4">
                 <a href=""><p class="card-text">{{ blog.title }}</p></a>
-                <p class="card-text">{{ blog.pub_date }}</p>
+                <p class="card-text">{{ blog.date }}</p>
                 <div class="card mb-4 shadow-sm">
                     <img class="bd-placeholder-img card-img-top" src="{{ blog.image.url }}" height="200" width="300"/>
                     <div class="card-body">
-                        <p class="card-text">{{ blog.body }}</p>
+                        <p class="card-text">{{ blog.abbrev }}</p>
                     </div>
                 </div>
             </div>
