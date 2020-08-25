@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
+{% load static %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,20 +48,20 @@
   <body>
     <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Jason Chow</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Jason Chow</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Linkedin</a>
+            <a class="nav-link" href="http://linkedin.com/in/jason-chow-109b5a161">Linkedin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Resume</a>
+            <a class="nav-link" href="{% static 'cv_2020_r.pdf' %}">Resume</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Blog</a>
+            <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
           </li>
         </ul>
       </div>
@@ -79,7 +80,7 @@
     <div class="row">
         {% for blog in blogs.all %}
             <div class="col-md-4">
-                <a href=""><p class="card-text">{{ blog.title }}</p></a>
+                <a href="{% url 'detail' blog.id %}"><p class="card-text">{{ blog.title }}</p></a>
                 <p class="card-text">{{ blog.date }}</p>
                 <div class="card mb-4 shadow-sm">
                     <img class="bd-placeholder-img card-img-top" src="{{ blog.image.url }}" height="200" width="300"/>
